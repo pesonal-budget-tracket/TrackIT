@@ -1,0 +1,17 @@
+type,amount,description,date
+income,30000.0,sdlfkse,2025-06-01,salary
+expense,400.0,food,2025-04-01,food
+income,60000.0,daa,2025-07-01,salary
+expense,200.0,dcsd,2025-06-04,food
+expense,300.0,sds,2025-04-10,food
+expense,6000.0,wefewrf,2025-04-25,food
+expense,6000.0,refef,2025-06-27,food
+expense,300.0,ad,2025-06-12,makeup
+expense,5000.0,sdw,2025-06-27,makeup
+expense,40.0,wedwe,2025-06-29,makeup
+expense,600.0,af,2025-06-19,makeup
+expense,40.0,wedwe,2025-06-28,makeup
+expense,300.0,edwe,2025-06-13,rent
+expense,50.0,sgrs,2025-06-13,makeup
+expense,90000.0,sdfwe,2025-06-26,rent
+income,50000.0,sdffw,2025-04-03,salary
