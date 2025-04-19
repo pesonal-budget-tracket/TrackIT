@@ -222,13 +222,16 @@
             <a th:href="@{/budget(username=${username})}">
                 <i class="fas fa-chart-pie me-2"></i>View Budget
             </a>
+            <a th:href="@{/transactions/monthly-report(username=${username})}">
+                <i class="fas fa-chart-line me-2"></i>Reports
+            </a>
+            <a th:href="@{/category-budgets(username=${username})}">
+                <i class="fas fa-tags me-2"></i>Category Budgets
+            </a>
         </nav>
 
         <!-- Main Content -->
-        <div class="page-header">
-            <h2>Financial Transactions</h2>
-            <h4>Current Budget: ₹<span class="budget-highlight" th:text="${budget}"></span></h4>
-        </div>
+       
 
         <!-- Error Message -->
         <div th:if="${error}" class="alert alert-danger mt-3" role="alert">
@@ -242,12 +245,6 @@
             <span th:text="${warning}"></span>
         </div>
 
-        <!-- Category Budgets Button -->
-        <div class="text-center mb-4">
-            <a class="btn btn-secondary" th:href="@{/category-budgets/view(username=${username})}">
-                <i class="fas fa-tags me-2"></i>View Category Budgets
-            </a>
-        </div>
 
         <!-- Transaction Form -->
         <div class="form-section">

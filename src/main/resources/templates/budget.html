@@ -31,11 +31,18 @@
             flex-direction: column;
         }
 
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
         nav {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             padding: 15px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
 
         nav a {
@@ -49,17 +56,9 @@
             border-radius: 50px;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             background-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-        }
-
-        .page-container {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
         }
 
         .budget-container {
@@ -70,6 +69,7 @@
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
             position: relative;
+            margin: 0 auto;
         }
 
         .budget-header {
@@ -218,6 +218,22 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            top: -80px;
+            right: -60px;
+            opacity: 0.3;
+        }
+
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -40px;
+            left: -50px;
+            opacity: 0.2;
+        }
+
         .balance-info {
             display: flex;
             justify-content: center;
@@ -241,26 +257,21 @@
             .budget-stat {
                 padding: 15px;
             }
+            
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Navigation -->
+        
 
-    <!-- Navigation -->
-    <nav class="text-center">
-        <a th:href="@{/transactions(username=${username})}">
-            <i class="fas fa-exchange-alt me-2"></i>Transactions
-        </a>
-        <a th:href="@{/budget(username=${username})}" class="active">
-            <i class="fas fa-wallet me-2"></i>Budget
-        </a>
-        <a th:href="@{/category-budgets/view(username=${username})}">
-            <i class="fas fa-chart-pie me-2"></i>Categories
-        </a>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="page-container">
+        <!-- Main Content -->
         <div class="budget-container">
             <div class="budget-header">
                 <div class="circle-1 budget-circle"></div>
@@ -283,28 +294,6 @@
                     <div class="budget-stat-value" th:text="'₹' + ${budget}"></div>
                 </div>
                 
-                <!-- Income Stat -->
-                <div class="budget-stat">
-                    <div class="budget-stat-label">
-                        <div class="budget-stat-icon" style="background: rgba(46, 204, 113, 0.1); color: var(--income-color);">
-                            <i class="fas fa-arrow-down"></i>
-                        </div>
-                        Monthly Income
-                    </div>
-                    <div class="budget-stat-value" style="color: var(--income-color);">₹0</div>
-                </div>
-                
-                <!-- Expense Stat -->
-                <div class="budget-stat">
-                    <div class="budget-stat-label">
-                        <div class="budget-stat-icon" style="background: rgba(231, 76, 60, 0.1); color: var(--expense-color);">
-                            <i class="fas fa-arrow-up"></i>
-                        </div>
-                        Monthly Expenses
-                    </div>
-                    <div class="budget-stat-value" style="color: var(--expense-color);">₹0</div>
-                </div>
-                
                 <div class="budget-actions">
                     <a th:href="@{/transactions(username=${username})}" class="btn btn-primary w-100">
                         <i class="fas fa-plus-circle me-2"></i>Add Transaction
@@ -324,5 +313,7 @@
         </div>
     </div>
 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

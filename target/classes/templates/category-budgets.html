@@ -19,6 +19,8 @@
             --success-color: #4cc9f0;
             --danger-color: #dc3545; /* Changed from pink (#f72585) to red */
             --warning-color: #ffb703;
+            --income-color: #2ecc71;
+            --expense-color: #e74c3c;
         }
 
         body {
@@ -36,30 +38,29 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
         }
 
-        .navbar {
+        nav {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            margin-bottom: 30px;
             padding: 15px;
+            text-align: center;
             box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
 
-        .navbar-dark .navbar-nav .nav-link {
+        nav a {
             color: white;
-            margin: 0 10px;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
             font-weight: 500;
+            transition: all 0.3s ease;
             padding: 8px 15px;
             border-radius: 50px;
-            transition: all 0.3s ease;
         }
 
-        .navbar-dark .navbar-nav .nav-link:hover {
+        nav a:hover, nav a.active {
             background-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-        }
-
-        .navbar-dark .navbar-nav .nav-link.active {
-            background-color: rgba(255, 255, 255, 0.3);
-            font-weight: 600;
         }
 
         h2 {
@@ -232,27 +233,40 @@
             left: 50%;
             transform: translateX(-50%);
         }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin-top: 20px;
+            }
+            
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Budget Tracker</a>
-        <div class="navbar-nav">
-            <a class="nav-link" th:href="@{/transactions(username=${username})}">
-                <i class="fas fa-exchange-alt me-2"></i>Transactions
-            </a>
-            <a class="nav-link" th:href="@{/budget(username=${username})}">
-                <i class="fas fa-chart-pie me-2"></i>View Budget
-            </a>
-            <a class="nav-link active" href="#">
-                <i class="fas fa-tags me-2"></i>Category Budgets
-            </a>
-        </div>
-    </div>
-</nav>
-
 <div class="container">
+    <!-- Navigation -->
+    <nav class="d-flex justify-content-center">
+        <a th:href="@{/transactions(username=${username})}">
+            <i class="fas fa-exchange-alt me-2"></i>Transactions
+        </a>
+        <a th:href="@{/budget(username=${username})}">
+            <i class="fas fa-wallet me-2"></i>Budget
+        </a>
+        <a th:href="@{/category-budgets/view(username=${username})}" class="active">
+            <i class="fas fa-chart-pie me-2"></i>Categories
+        </a>
+        <a th:href="@{/transactions/monthly-report(username=${username})}">
+            <i class="fas fa-chart-line me-2"></i>Reports
+        </a>
+    </nav>
+
     <div class="page-header">
         <h2>Category Budgets</h2>
     </div>
