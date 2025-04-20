@@ -120,14 +120,19 @@
     <div class="container mt-4">
         <div class="row mb-3">
             <div class="col">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a th:href="@{/(username=${username})}">Home</a></li>
-                        <li class="breadcrumb-item"><a th:href="@{/transactions(username=${username})}">Transactions</a></li>
-                        <li class="breadcrumb-item"><a th:href="@{/transactions/monthly-report(username=${username})}">Monthly Report</a></li>
-                        <li class="breadcrumb-item active" th:text="${monthName + ' ' + year}">Report Result</li>
-                    </ol>
+                <nav class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a th:href="@{/(username=${username})}">Home</a>
+                        <a th:href="@{/transactions(username=${username})}">Transactions</a>
+                        <a th:href="@{/transactions/monthly-report(username=${username})}">Monthly Report</a>
+                    </div>
+                    <div>
+                        <a th:href="@{/login}" class="btn btn-light btn-sm">
+                            <i class="fas fa-sign-out-alt me-1"></i> Logout
+                        </a>
+                    </div>
                 </nav>
+                
             </div>
         </div>
 
